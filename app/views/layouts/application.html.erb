@@ -5,16 +5,20 @@
   <title><%= full_title(yield (:title)) %> </title>
   
     
+ <% if Rails.env.development? %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/mystyle.css" >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
  
+ <% end %>
 
- 
-
-
+<% if !Rails.env.development? %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %> 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
-  
+  <% end %>
  
   
    <%= render 'layouts/shim' %>
@@ -24,7 +28,14 @@
 		<%= render 'layouts/header' %>
 		
 		<div class="container">
+			
+			<% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+			
 			<%= yield %>
+			
+			
 			
 			<%= render 'layouts/footer' %>
 			

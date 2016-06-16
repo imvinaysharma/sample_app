@@ -2,10 +2,10 @@
 <% provide(:title, "Home") %>
 
 <div class="center jumbotron">
-  <h1>Welcome to the Sample App</h1>
+  <h1>Knoll Exchange</h1>
 
   <h2>
-    This is the home page for the    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    This is the home page for the    <a href="http://exchange.knoll.com/">Knoll Exchange</a>
     sample application.
   </h2>
 
@@ -14,6 +14,7 @@
 </div>
 
 
-
+ <% if !Rails.env.development? %>
 <%= link_to image_tag("rails.png", alt: "Rails logo"),  'http://rubyonrails.org/' %>
 
+<% end %>

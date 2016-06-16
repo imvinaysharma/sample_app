@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
  
+  
   get 'users/new'
 
   root 'static_pages#home'
@@ -16,6 +17,12 @@ Rails.application.routes.draw do
   get 'contact'  	=> 'static_pages#contact'
   
   get 'signup' 	=> 'users#new'
+  
+  get  'login'  => 'sessions#new'
+  
+  post 'login'  => 'sessions#create'
+  
+  get 'logout' => 'sessions#destroy'
 
   resources :users
 
