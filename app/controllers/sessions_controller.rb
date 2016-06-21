@@ -21,7 +21,8 @@ class SessionsController < ApplicationController
   
   def destroy
   log_out if logged_in?
-  redirect_to @user
+  render 'new'
+  #redirect_to @user
   #redirect_to root_url
   end
   
