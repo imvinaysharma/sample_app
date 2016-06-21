@@ -1,6 +1,13 @@
 
-<% provide(:title, 'Users' ) %>
+<% provide(:title, 'All users' ) %>
 
 <h1>INDEX</h1>
 
-<p> All users </p>
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= gravatar_for user %>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>
