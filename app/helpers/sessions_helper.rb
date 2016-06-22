@@ -27,6 +27,8 @@ def current_user
     end
   end
 	
+	
+	
 	def forget(user)
 	 user.forget
 	 cookies.delete(:user_id)
@@ -48,6 +50,10 @@ def current_user
   # Stores the URL trying to be accessed.
   def store_location
     session[:forwarding_url] = request.url if request.get?
+  end
+	
+	def current_user?(user)
+    user == current_user
   end
 	
 end
